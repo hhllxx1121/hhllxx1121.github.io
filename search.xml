@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>stylegan2论文笔记</title>
+      <link href="/2022/12/01/stylegan2%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/"/>
+      <url>/2022/12/01/stylegan2%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p>stylegan1存在伪影的问题，本文是在stylegan的基础上做出一点修改。作者说是Adain模块造成的，所以把这个模块改掉了。也改动了渐进式增长架构。</p><span id="more"></span><h3 id="消除归一化导致的伪影"><a href="#消除归一化导致的伪影" class="headerlink" title="消除归一化导致的伪影"></a>消除归一化导致的伪影</h3><p><img src="https://img-blog.csdnimg.cn/e0219b9e330d4538b175739c26bf01e4.png" alt="在这里插入图片描述"></p><p>就算在生成图看的不明显，但是在生成器的中间特征图中，异常开始出现在64*64的分辨率附近，并且在后面特征图中也一直有，尤其在高分辨下更严重。作业把问题精确到了Adain中。</p><p>生成器架构的修改：</p><p><img src="https://img-blog.csdnimg.cn/6be0597aa6884e2cbda7f25c04ab9fd7.png" alt="在这里插入图片描述"></p><p>改动过程：a是原始的stylegan的合成网络，把Adain分成了两部分–归一化(Norm)和调制(Mod)，还把bias拿到了下面，这就变成了b。原始的stylegan在样式内部加了偏置和噪音，作者说偏置和噪声的加法在这里的影响不大，所以就把这个加法往后移，放在Norm后了(主要是不影响下面说的乘法和除法的合并)。而且归一化时直接把均值给去掉了，后面的norm和mod都是只有std，这就是到了c，在c上继续改动，现在的样式块就由调制，卷积和归一化组成，那我们在feature map作乘法和在卷积核上作乘法得到的结果是一样的 $w^&#96;<em>{ijk} &#x3D; s_i*w</em>{ijk}$。假设独立同分布的情况下,也把Norm操作除法也放在卷积核上。就得到了d。</p><p>这样就改动了之前的instance normalization。总的概括如下：</p><p><img src="https://img-blog.csdnimg.cn/6d03e808f3dd40488490fb087f621223.png" alt="在这里插入图片描述"></p><h3 id="图像质量和生成器平滑度"><a href="#图像质量和生成器平滑度" class="headerlink" title="图像质量和生成器平滑度"></a>图像质量和生成器平滑度</h3><p><img src="https://img-blog.csdnimg.cn/70e1284321e74ef3a3c2f8efd5119bf1.png" alt="在这里插入图片描述"></p><p>作者观察到了感知的图像质量和感知路径长度（PPL）之间的有趣关系，较小的 PPL（平滑的生成器映射）似乎与较高的整体图 像质量相关，而其他指标则看不到该变化。PPL 分数低实际上表示图像的质量高，反之亦然。在训练过程中通过鼓励低 PPL 来支持平滑的生成器映射可能会改善图像质量</p><h4 id="懒惰正则化"><a href="#懒惰正则化" class="headerlink" title="懒惰正则化"></a>懒惰正则化</h4><p>损失是由损失函数和正则项组成，优化的时候也是同时优化这两项的，lazy regularization就是正则项可以减少优化的次数，比如每16个minibatch才优化一次正则项，这样可以减少计算量，同时对效果也没什么影响。</p><h4 id="路径长度正则化"><a href="#路径长度正则化" class="headerlink" title="路径长度正则化"></a>路径长度正则化</h4><p>在生成人脸的同时，我们希望能够控制人脸的属性，不同的latent code能得到不同的人脸，当确定latent code变化的具体方向时，该方向上不同的大小应该对应了图像上某一个具体变化的不同幅度。为了达到这个目的，设计了 Path length regularization，它的原理也很简单，在图像上的梯度用图像乘上变换的梯度来表示，下列公式中w表示由latent code z得到的disentangled latent code，y表示图像，这个图像的像素是符合正态分布的，Jw是生成器g对w的一阶矩阵，表示图像在w上的变化，a是 $||J_w^Ty||_2$ 动态的移动平均值，随着优化动态调整，自动找到一个全局最优值。</p><h3 id="渐进式增长修正"><a href="#渐进式增长修正" class="headerlink" title="渐进式增长修正"></a>渐进式增长修正</h3><p><img src="https://img-blog.csdnimg.cn/41830dd568cd4f13a8325f35402d3cc9.png" alt="在这里插入图片描述"></p><p>这里门牙不管怎么转都是粘在固定位置的，和实际人脸转动不符合。这归因为之前太早确定了低分辨率的脸的形状，后面高分辨率主要对细节处理，改动不大。解决办法就是给它加了一个残差，</p><p><img src="https://img-blog.csdnimg.cn/662420862d6c460690764f6e84778255.png" alt="在这里插入图片描述"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> -深度学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> -gan系列 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hexo快速开始</title>
       <link href="/2022/11/27/hexo%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/"/>
       <url>/2022/11/27/hexo%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/</url>
@@ -21,50 +46,6 @@
         <tags>
             
             <tag> -hexo </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>第一篇博客</title>
-      <link href="/2022/11/27/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-      <url>/2022/11/27/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</url>
-      
-        <content type="html"><![CDATA[<p>这里就用来显示一张图片吧</p><span id="more"></span><p><img src="https://img-blog.csdnimg.cn/f4cf2562b0634da99aa928b7f835f844.png" alt="image01"></p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> -tags </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Hello World</title>
-      <link href="/2022/11/27/hello-world/"/>
-      <url>/2022/11/27/hello-world/</url>
-      
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><span id="more"></span><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> -python </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> -随便 </tag>
             
         </tags>
       
