@@ -20,20 +20,23 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="关于静态博客的一些笔记">
+  <meta name="description" content="1. 安装cython1sudo apt-get install cython    2. 修改py文件首先把Infrared.py文件的后缀改成Infrared.pyx，然后进入.pyx文件进行修改。只需要修改导出的函数，并且形参不能设置默认值（例如arg&#x3D;1是不行的）。修改方法是把def 改成cdef，并且在cdef后紧跟public。  在顶部加上下面这句注释，就没有警告了, #">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo快速开始">
-<meta property="og:url" content="http://example.com/2022/11/27/hexo%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/index.html">
+<meta property="og:title" content="Python转C">
+<meta property="og:url" content="http://example.com/2022/12/19/Python%E8%BD%ACC/index.html">
 <meta property="og:site_name" content="hhllxx">
-<meta property="og:description" content="关于静态博客的一些笔记">
+<meta property="og:description" content="1. 安装cython1sudo apt-get install cython    2. 修改py文件首先把Infrared.py文件的后缀改成Infrared.pyx，然后进入.pyx文件进行修改。只需要修改导出的函数，并且形参不能设置默认值（例如arg&#x3D;1是不行的）。修改方法是把def 改成cdef，并且在cdef后紧跟public。  在顶部加上下面这句注释，就没有警告了, #">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-11-27T14:28:55.000Z">
-<meta property="article:modified_time" content="2022-11-28T15:07:00.796Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/7362f8033f7c4537893e611399893384.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/cfbbd966324548388b2ef0dad0c51ed3.png">
+<meta property="article:published_time" content="2022-12-19T02:56:00.000Z">
+<meta property="article:modified_time" content="2022-12-19T02:58:20.051Z">
 <meta property="article:author" content="hhllxx">
-<meta property="article:tag" content="-hexo">
+<meta property="article:tag" content="-Cython">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/7362f8033f7c4537893e611399893384.png">
 
-<link rel="canonical" href="http://example.com/2022/11/27/hexo%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+<link rel="canonical" href="http://example.com/2022/12/19/Python%E8%BD%ACC/">
 
 
 <script id="page-configurations">
@@ -46,7 +49,7 @@
   };
 </script>
 
-  <title>hexo快速开始 | hhllxx</title>
+  <title>Python转C | hhllxx</title>
   
 
 
@@ -189,7 +192,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/27/hexo%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/19/Python%E8%BD%ACC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -202,29 +205,20 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          hexo快速开始
+          Python转C
         </h1>
 
         <div class="post-meta">
 	 
-            <font color=red>置顶</font>
-            <span class="post-meta-divider">|</span>
-           
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-11-27 22:28:55" itemprop="dateCreated datePublished" datetime="2022-11-27T22:28:55+08:00">2022-11-27</time>
+              <time title="创建时间：2022-12-19 10:56:00 / 修改时间：10:58:20" itemprop="dateCreated datePublished" datetime="2022-12-19T10:56:00+08:00">2022-12-19</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-11-28 23:07:00" itemprop="dateModified" datetime="2022-11-28T23:07:00+08:00">2022-11-28</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -246,56 +240,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>关于静态博客的一些笔记</p>
-<span id="more"></span>
-
-<h3 id="更换电脑的操作"><a href="#更换电脑的操作" class="headerlink" title="更换电脑的操作"></a>更换电脑的操作</h3><ul>
-<li><p>安装git</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt<span class="literal">-get</span> install git</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设置git全局邮箱和用户名</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config <span class="literal">--global</span> user.name <span class="string">&quot;yourgithubname&quot;</span></span><br><span class="line">git config <span class="literal">--global</span> user.email <span class="string">&quot;yourgithubemail&quot;</span></span><br></pre></td></tr></table></figure>
+        <h3 id="1-安装cython"><a href="#1-安装cython" class="headerlink" title="1. 安装cython"></a>1. 安装cython</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt<span class="literal">-get</span> install cython</span><br></pre></td></tr></table></figure>
 
 
-</li>
-<li><p>设置ssh key</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh<span class="literal">-keygen</span> <span class="literal">-t</span> rsa <span class="literal">-C</span> <span class="string">&quot;youremail&quot;</span></span><br><span class="line"><span class="comment">#生成后填到github和coding上（有coding平台的话）</span></span><br><span class="line"><span class="comment">#验证是否成功</span></span><br><span class="line">ssh <span class="literal">-T</span> git@github.com</span><br><span class="line">ssh <span class="literal">-T</span> git@git.coding.net <span class="comment">#(有coding平台的话)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-修改py文件"><a href="#2-修改py文件" class="headerlink" title="2. 修改py文件"></a>2. 修改py文件</h3><p>首先把Infrared.py文件的后缀改成Infrared.pyx，然后进入.pyx文件进行修改。只需要修改导出的函数，并且形参不能设置默认值（例如arg&#x3D;1是不行的）。修改方法是把def 改成<strong>cdef</strong>，并且在cdef后紧跟<strong>public</strong>。</p>
+<p><img src="/img/loading.gif" data-original="https://img-blog.csdnimg.cn/7362f8033f7c4537893e611399893384.png" alt="请添加图片描述"></p>
+<p>在顶部加上下面这句注释，就没有警告了, # 也需要</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># cython:language_level=3</span></span><br></pre></td></tr></table></figure>
 
 
-</li>
-<li><p>安装nodejs</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt<span class="literal">-get</span> install nodejs</span><br><span class="line">sudo apt<span class="literal">-get</span> install npm</span><br></pre></td></tr></table></figure>
 
+<h3 id="3-python转-c和-h"><a href="#3-python转-c和-h" class="headerlink" title="3. python转.c和.h"></a>3. python转.c和.h</h3><p>使用cython的命令进行转换</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cython Infrared.pyx</span><br></pre></td></tr></table></figure>
 
-</li>
-<li><p>安装hexo</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install hexo<span class="literal">-cli</span> <span class="literal">-g</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>但是已经不需要初始化了，</p>
-<p>直接在任意文件夹下</p>
- <figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git<span class="selector-tag">@</span>………………</span><br></pre></td></tr></table></figure>
+<h3 id="4-书写main-c文件"><a href="#4-书写main-c文件" class="headerlink" title="4. 书写main.c文件"></a>4. 书写main.c文件</h3><p>这一步是main.c去调用Python生成的c文件导出的那个函数。用箭头指出的名字都是要特别注意的，是要和文件名相同的</p>
+<p><img src="/img/loading.gif" data-original="https://img-blog.csdnimg.cn/cfbbd966324548388b2ef0dad0c51ed3.png" alt="请添加图片描述"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Python.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;Infrared.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> **argv)</span> &#123;</span><br><span class="line">  <span class="type">int</span> status=PyImport_AppendInittab(<span class="string">&quot;Infrared&quot;</span>, PyInit_Infrared);</span><br><span class="line">  <span class="keyword">if</span>(status==<span class="number">-1</span>)&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//error</span></span><br><span class="line">  &#125; </span><br><span class="line">  Py_Initialize();</span><br><span class="line">  PyObject *module = PyImport_ImportModule(<span class="string">&quot;Infrared&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(module==<span class="literal">NULL</span>)&#123;</span><br><span class="line">     Py_Finalize();</span><br><span class="line">     <span class="keyword">return</span> <span class="number">-1</span>;<span class="comment">//error</span></span><br><span class="line">  &#125;</span><br><span class="line">  PyObject *binfile;</span><br><span class="line">  PyObject *output;</span><br><span class="line">  PyObject *threshold_seg;</span><br><span class="line">  binfile = Py_BuildValue(<span class="string">&quot;s&quot;</span>, <span class="string">&quot;./testdata/20221126-1-2.bin&quot;</span>);</span><br><span class="line">  output = Py_BuildValue(<span class="string">&quot;s&quot;</span>, <span class="string">&quot;./output/&quot;</span>);</span><br><span class="line">  threshold_seg = Py_BuildValue(<span class="string">&quot;f&quot;</span>, <span class="number">0.5</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;start...\n&quot;</span>);</span><br><span class="line">  Infrared_Imaging_Enhancing(binfile, output,threshold_seg);</span><br><span class="line">  Py_Finalize();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>然后进入克隆到的文件夹：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> xxx.github.io</span><br><span class="line">npm install</span><br><span class="line">npm install hexo<span class="literal">-deployer-git</span> <span class="literal">--save</span></span><br></pre></td></tr></table></figure>
-
-<p>生成，部署：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
-
-<p>然后就可以开始写你的新博客了</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new newpage</span><br></pre></td></tr></table></figure>
-
-<p><strong>Tips:</strong></p>
-<ol>
-<li>不要忘了，每次写完最好都把源文件上传一下</li>
-</ol>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit –m <span class="string">&quot;xxxx&quot;</span></span><br><span class="line">git push </span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>头部格式</li>
-</ol>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">top: 1  # 置顶越大优先级越高</span><br><span class="line">title: hexo快速开始</span><br><span class="line">date: 2022-11-27 22:28:55</span><br><span class="line">categories:</span><br><span class="line"><span class="code">    -工具</span></span><br><span class="line"><span class="code">tags:</span></span><br><span class="line"><span class="code">    -hexo  # 多个可用列表[,]</span></span><br></pre></td></tr></table></figure>
-
-
+<h3 id="5-执行gcc命令编译"><a href="#5-执行gcc命令编译" class="headerlink" title="5. 执行gcc命令编译"></a>5. 执行gcc命令编译</h3><p>-同时编译main.c和Infrared.c， -o是输出名字，-I指定的目录是寻找头文件的目录，-l指定寻找的库文件（大写L指定目录），</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc main.c Infrared.c <span class="literal">-o</span> main <span class="literal">-I</span>/usr/include/python3.<span class="number">8</span>/ <span class="literal">-lpython3</span>.<span class="number">8</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -317,7 +281,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> -hexo</a>
+              <a href="/tags/Cython/" rel="tag"><i class="fa fa-tag"></i> -Cython</a>
           </div>
           <script type="text/javascript">
             var tagsall=document.getElementsByClassName("post-tags")
@@ -380,11 +344,11 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2022/12/01/stylegan2%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" rel="next" title="stylegan2论文笔记">
-      stylegan2论文笔记 <i class="fa fa-chevron-right"></i>
+    <a href="/2022/12/01/stylegan2%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" rel="prev" title="stylegan2论文笔记">
+      <i class="fa fa-chevron-left"></i> stylegan2论文笔记
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -443,7 +407,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%8D%A2%E7%94%B5%E8%84%91%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="nav-number">1.</span> <span class="nav-text">更换电脑的操作</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85cython"><span class="nav-number">1.</span> <span class="nav-text">1. 安装cython</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9py%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">2. 修改py文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-python%E8%BD%AC-c%E5%92%8C-h"><span class="nav-number">3.</span> <span class="nav-text">3. python转.c和.h</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%B9%A6%E5%86%99main-c%E6%96%87%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">4. 书写main.c文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E6%89%A7%E8%A1%8Cgcc%E5%91%BD%E4%BB%A4%E7%BC%96%E8%AF%91"><span class="nav-number">5.</span> <span class="nav-text">5. 执行gcc命令编译</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
